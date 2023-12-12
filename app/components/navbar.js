@@ -24,7 +24,9 @@ export default function Navbar() {
 					<NavbarButton text={'Menu'}></NavbarButton>
 					<NavbarButton text={'Location'}></NavbarButton>
 					<NavbarButton text={'Cart'}></NavbarButton>
-					<Image className="w-[40px] h-[40px]" src={accountIcon}></Image>
+					<Link href="/login">
+						<Image className="w-[40px] h-[40px]" src={accountIcon}></Image>
+					</Link>
 				</div>
 			</div>
 		</div>

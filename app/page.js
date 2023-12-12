@@ -1,11 +1,9 @@
-'use client';
-import Spline from '@splinetool/react-spline';
-import Navbar from './components/navbar';
+"use client";
+import Spline from "@splinetool/react-spline";
 
 export default function Home() {
 	return (
-		<div className="w-[100vw] h-[100vh] bg-gradient-to-t from-[#FFD600] to-[#ff5100] -z-10 absolute overflow-auto">
-			<Navbar></Navbar>
+		<div className="w-[100vw] h-[100vh] bg-gradient-to-t from-[#FFD600] to-[#ff3c00] -z-10 absolute overflow-auto">
 			<div className="flex mt-[8%]">
 				<div className="w-[50vw] flex flex-col items-center justify-center gap-4">
 					<p className="text-center text-white text-[60px] font-bold font-['Rowdies'] leading-[5rem]">

@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Rowdies:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Rubik&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,11 +11,11 @@ body {
 	overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 #burgerSpline {
-	width: 50px !important;
-	height: 50px !important;
+	width: fit-content !important;
+	height: fit-content !important;
 	z-index: -1;
 }
-canvas {
-	position: absolute !important;
-	right: 0;
+
+input::placeholder {
+	color: white;
 }

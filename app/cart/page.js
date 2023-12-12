@@ -54,8 +54,8 @@ export default function cart() {
             </div>
           </div>
         </div>
-        <div className="w-[749px] h-[295px] mt-12 bg-opacity-50 mr-10">
-          <div className="w-[749px] h-[295px] bg-opacity-50 bg-yellow-50 rounded-[25px]">
+        <div className="w-[749px] h-[315px] mt-12 bg-opacity-50 mr-10">
+          <div className="w-[749px] h-[315px] bg-opacity-50 bg-yellow-50 rounded-[25px]">
             <div className="  text-gray-900 font-bold text-3xl text-left   font-Rubik ml-10 pt-3 border-b-2 border-black mr-14">
               Payment Methods
             </div>
@@ -89,7 +89,38 @@ export default function cart() {
         </div>
       </div>
       <div className="w-[749px] h-[514px] mt-48 ml-">
-        <div className="w-[749px] h-[514px] left-0 top-0  bg-opacity-50 bg-yellow-50 rounded-[25px]"></div>
+        <div className="w-[749px] h-[514px] left-0 top-0  bg-opacity-50 bg-yellow-50 rounded-[25px]">
+          <div className="  text-gray-900 font-bold text-3xl text-left   font-Rubik ml-10 pt-3 border-b-2 border-black mr-14">
+            Payment Methods
+          </div>
+
+          <div className="text-gray-900 font-bold text-3xl text-left h-40 font-Rubik ml-10 pt-3 border-b-2 border-black mr-14"></div>
+          <div className="text-gray-900 font-bold text-3xl text-left h-40 font-Rubik ml-10 pt-3 border-b-2 border-black mr-14">
+            <div>
+              <div className="flex justify-between">
+                <h4>Subtotal:</h4>
+                <p className="text-right">0.00$</p>
+              </div>
+              <div className="flex justify-between">
+                <h4>Discount:</h4>
+                <p>0.00$</p>
+              </div>
+              <div className="flex justify-between">
+                <h4>Shipping:</h4>
+                <p>0.00$</p>
+              </div>
+            </div>
+          </div>
+          <div className="text-gray-900 font-bold text-3xl text-left h-40 font-Rubik ml-10 pt-3 mr-14">
+            <div className="flex justify-between">
+              <h4>Total:</h4>
+              <p>0.00$</p>
+            </div>
+            <button className=" left-[46px] text-clip w-1/4 text-white text-xl text-center font-Rubik bg-red-800 bg-opacity-75rounded-[25px] mr-10 p-2 pl-4 mt-8 ml-60">
+              Checkout
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

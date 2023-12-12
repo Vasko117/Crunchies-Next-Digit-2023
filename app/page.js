@@ -5,7 +5,6 @@ import Navbar from "./components/navbar";
 export default function Home() {
   return (
     <div className="w-[100vw] h-[100vh] bg-gradient-to-t from-[#FFD600] to-[#ff5100] -z-10 absolute">
-      <Navbar></Navbar>
       <div className="flex mt-[8%]">
         <div className="w-[50vw] flex flex-col items-center justify-center">
           <p className="text-center text-white text-[80px] font-bold font-['Rowdies'] leading-[5rem]">

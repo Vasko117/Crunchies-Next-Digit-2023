@@ -10,7 +10,7 @@ export default function Menu() {
 
 	useEffect(() => {
 		getItems(setFood, setError);
-		loginUser(setUser);
+		//loginUser("dimi", "dimi", setUser);
 	}, []);
 
 	return (

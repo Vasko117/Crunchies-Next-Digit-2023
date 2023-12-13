@@ -55,7 +55,13 @@ export default function Menu() {
             >
               <p>{food.name}</p>
               <p>{food.price}</p>
-              <Image src={}></Image>
+              {food.id == 2 && (
+                <Image
+                  width="100"
+                  height="100"
+                  src={"/" + food.id + ".png"}
+                ></Image>
+              )}
             </div>
           ))}
         </div>

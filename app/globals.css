@@ -8,7 +8,15 @@
 body {
 	padding: 0;
 	margin: 0;
-	overflow-x: hidden; /* Hide horizontal scrollbar */
+	overflow: hidden; /* Hide horizontal scrollbar */
+}
+.hide-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+.hide-scrollbar {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
 }
 #burgerSpline {
 	width: fit-content !important;

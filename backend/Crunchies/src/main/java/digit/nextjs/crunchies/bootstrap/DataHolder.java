@@ -20,7 +20,11 @@ public class DataHolder {
     public void init(){
         menuItemRepository.saveAll(Arrays.asList(
                 MenuItem.builder().name("Burger").build(),
-                MenuItem.builder().name("CheeseBurger").build()));
+                MenuItem.builder().name("Cheese Burger").build(),
+                MenuItem.builder().name("Bacon Burger").build(),
+                MenuItem.builder().name("Chicken Burger").build(),
+                MenuItem.builder().name("Extra Crispy Chicken Burger").build(),
+                MenuItem.builder().name("Crunchy Burger").build()));
 
         userRepository.saveAll(Arrays.asList(
                 User.builder().username("dimi").password("dimi").build()

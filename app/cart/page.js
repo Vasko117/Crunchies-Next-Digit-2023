@@ -1,32 +1,33 @@
 export default function cart() {
   return (
-    <div className="flex flex-col-reverse">
-      <div className="w-screen h-min bg-gradient-to-t from-[#FFD600] to-[#ff5100]  inset-0 z-[-10] flex justify-center absolute">
+    <div className="w-screen h-screen bg-gradient-to-t from-[#FFD600] to-[#ff5100]  inset-0 z-[-10] absolute">
+      <div className="flex justify-center md:flex-col lg:flex-row lg:items-start sm:items-center md:items-center mt-[12vh]">
         <div className="flex-col">
-          <div className="w-[749px] h-[215px] mt-48 bg-opacity-50 mr-10">
-            <div className="w-[749px] h-[215px] bg-opacity-50 bg-yellow-50 rounded-[25px]">
-              <div className=" text-slate-50 text-3xl text-left font-bold   font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
+          <div className="bg-opacity-50 mr-[5vh]">
+            <div className="w-full md:w-[100%] lg:w-[98%] bg-opacity-50 bg-yellow-50 rounded-[25px]">
+              <div className="text-slate-50 text-3xl text-left font-bold font-Rubik ml-[3vw] pt-[1vh] border-b-2 border-white mr-[5vh]">
                 Personal Information
               </div>
-              <div className="w-[702px] h-[55px] ml-10 mt-5 pr-10">
+              <div className="ml-[2.4vw] mt-[1vw] pr-[2vw]">
                 <input
                   placeholder="First Name"
-                  className="left-[46px] text-clip w-full text-black text-xl text-left font-Rubik bg-black bg-opacity-25 rounded-[25px] p-2 pl-4"
+                  className="text-clip w-full md:w-full  text-slate-50 text-xl text-left font-Rubik bg-amber-800 bg-opacity-25 rounded-[25px] pl-[1vh] p-[1px] mb-[1vh] m-[5px]"
                 />
-                <div className="flex flex-row mt-10">
+                <div className="flex flex-col md:flex-row pb-[2vh]">
                   <input
                     placeholder="Email"
-                    className=" w-1/2 text-slate-50 text-xl text   font-Rubik bg-black bg-opacity-25 rounded-[25px] mr-16 p-2 pl-4"
+                    className="text-slate-50 text-xl text font-Rubik bg-amber-800 bg-opacity-25 rounded-[25px] w-full md:w-1/2 pl-[1vh] p-[1px] m-[5px]"
                   />
                   <input
                     placeholder="Phone Number"
-                    className=" w-1/2 text-slate-50 text-xl text-left    font-Rubik bg-black bg-opacity-25 rounded-[25px] p-2 pl-4"
+                    className="text-slate-50 text-xl text-left font-Rubik bg-amber-800 bg-opacity-25 rounded-[25px] w-full  pl-[1vh] p-[1px] m-[5px]"
                   />
                 </div>
               </div>
             </div>
           </div>
-          <div className="w-[749px] h-[215px] mt-12 bg-opacity-50 mr-10">
+
+          <div className="mt-[4vh] bg-opacity-50 mr-[5vh]">
             <div className="w-[749px] h-[215px] bg-opacity-50 bg-yellow-50 rounded-[25px]">
               <div className="  text-slate-50 font-bold text-3xl text-left   font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
                 Shipping Adress
@@ -35,27 +36,27 @@ export default function cart() {
                 <div className="flex justify-normal">
                   <input
                     placeholder="Adress"
-                    className="left-[46px] text-clip w-full text-black text-xl text-left font-Rubik bg-black bg-opacity-25 rounded-[25px] mr-10 p-2 pl-4"
+                    className="left-[46px] text-clip w-full text-slate-50 text-xl text-left font-Rubik bg-amber-800 bg-opacity-25 rounded-[25px] mr-10 p-2 pl-4"
                   />
                   <input
                     placeholder="Postal Code"
-                    className="left-[46px] text-clip w-1/2 text-black text-xl text-left font-Rubik bg-black bg-opacity-25 rounded-[25px] p-2 pl-4"
+                    className="left-[46px] text-clip w-1/2 text-slate-50 text-xl text-left font-Rubik bg-amber-800 bg-opacity-25 rounded-[25px] p-2 pl-4"
                   />
                 </div>
                 <div className="flex flex-row mt-10">
                   <input
                     placeholder="City"
-                    className=" w-1/2 text-slate-50 text-xl text  font-Rubik bg-black bg-opacity-25 rounded-[25px] mr-16 p-2 pl-4"
+                    className=" w-1/2 text-slate-50 text-xl text  font-Rubik bg-amber-800 bg-opacity-25 rounded-[25px] mr-16 p-2 pl-4"
                   />
                   <input
                     placeholder="Country"
-                    className=" w-1/2 text-slate-50 text-xl text-left   font-Rubik bg-black bg-opacity-25 rounded-[25px] p-2 pl-4"
+                    className=" w-1/2 text-slate-50 text-xl text-left   font-Rubik bg-amber-800 bg-opacity-25 rounded-[25px] p-2 pl-4"
                   />
                 </div>
               </div>
             </div>
           </div>
-          <div className="w-[749px] h-[315px] mt-12 bg-opacity-50 mr-10">
+          <div className="mt-[4vh] bg-opacity-50 mr-[5vh]">
             <div className="w-[749px] h-[315px] bg-opacity-50 bg-yellow-50 rounded-[25px]">
               <div className="  text-slate-50 font-bold text-3xl text-left   font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
                 Payment Methods
@@ -68,30 +69,30 @@ export default function cart() {
                   </div>
                   <input
                     placeholder="Cardholder Name"
-                    className="mb-2 text-clip w-full text-slate-50 text-xl text-left font-Rubik bg-black bg-opacity-25 rounded-[25px] mr-10 p-2 pl-4"
+                    className="mb-2 text-clip w-full text-slate-50 text-xl text-left font-Rubik bg-amber-800 bg-opacity-25 rounded-[25px] mr-10 p-2 pl-4"
                   />
                   <input
                     placeholder="Card Number"
-                    className="text-clip w-full text-slate-50 text-xl text-left font-Rubik bg-black bg-opacity-25 rounded-[25px] mr-10 p-2 pl-4"
+                    className="text-clip w-full text-slate-50 text-xl text-left font-Rubik bg-amber-800 bg-opacity-25 rounded-[25px] mr-10 p-2 pl-4"
                   />
                 </div>
                 <div className="flex flex-row mt-10">
                   <input
                     placeholder="EXP Date"
-                    className=" w-1/4 text-slate-50 text-xl text  font-Rubik bg-black bg-opacity-25 rounded-[25px] mr-16 p-2 pl-4"
+                    className=" w-1/4 text-slate-50 text-xl text  font-Rubik bg-amber-800 bg-opacity-25 rounded-[25px] mr-16 p-2 pl-4"
                   />
                   <input
                     placeholder="CVC"
-                    className=" w-1/4 text-slate-50 text-xl text-left   font-Rubik bg-black bg-opacity-25 rounded-[25px] p-2 pl-4"
+                    className=" w-1/4 text-slate-50 text-xl text-left   font-Rubik bg-amber-800 bg-opacity-25 rounded-[25px] p-2 pl-4"
                   />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="w-[749px] h-[514px] mt-48 ml-">
-          <div className="w-[749px] h-[514px] left-0 top-0  bg-opacity-50 bg-yellow-50 rounded-[25px]">
-            <div className="  text-slate-50 font-bold text-3xl text-left   font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
+        <div className="">
+          <div className="w-[70vh]  bg-opacity-50 bg-yellow-50 rounded-[25px]">
+            <div className="  text-slate-50 font-bold text-3xl text-left  font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
               Payment Methods
             </div>
 

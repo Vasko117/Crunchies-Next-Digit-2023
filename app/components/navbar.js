@@ -17,12 +17,15 @@ export default function Navbar() {
 	return (
 		<div className="absolute top-0 left-0 bg-transparent overflow-hidden">
 			<div className="flex justify-between items-center w-[100vw]">
-				<Link
-					href="/"
-					className="pl-5 text-white text-[60px] font-PacificoHeading drop-shadow-md"
-				>
-					Crunchies
-				</Link>
+				<div>
+					<Link
+						href="/"
+						className="pl-5 text-white text-[60px] font-PacificoHeading drop-shadow-md"
+					>
+						Crunchies
+					</Link>
+				</div>
+
 				<div className="flex justify-center items-center pr-10">
 					<NavbarButton text={'Menu'}></NavbarButton>
 					<NavbarButton text={'Location'}></NavbarButton>

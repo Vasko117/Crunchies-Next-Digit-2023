@@ -2,12 +2,17 @@
 import Spline from '@splinetool/react-spline';
 
 import Navbar from '../components/navbar';
+import Image from 'next/image';
+
 import Link from 'next/link';
 
 export default function Login() {
 	return (
 		<div className=" flex justify-center items-center w-[100vw] h-[100vh] bg-gradient-to-t from-[#FFD600] to-[#ff5100] ">
-			<div className="w-max h-max bg-opacity-50 bg-yellow-50 rounded-[50px]  shadow-xl  flex-col justify-center items-center  inline-flex p-6 pt-11 font-Rowdies text-white text-2xl">
+			<div className="pl-5 text-white text-[100px] font-PacificoHeading drop-shadow-md ">
+				Crunchies
+			</div>
+			<div className="w-max h-max   flex-col justify-center items-center  inline-flex p-6 pt-11 font-Rowdies text-white text-2xl">
 				<label htmlFor="mail">Email</label>
 				<input
 					type="text"
@@ -31,18 +36,13 @@ export default function Login() {
 					</div>
 				</button>
 				<div className="flex row items-center">
-					<p>No account?</p>
-					<button
-						className=" bg-red-600  gap-2.5 rounded-3xl p-3 "
-						style={{ zIndex: 1 }}
+					<p>No account? </p>
+					<Link
+						href="/register"
+						className="text-center text-white text-xl font-bold font-['Rowdies'] leading-loose tracking-tight"
 					>
-						<Link
-							href="/register"
-							className="text-center text-white text-xl font-bold font-['Rowdies'] leading-loose tracking-tight"
-						>
-							Register
-						</Link>
-					</button>
+						<u>Register</u>
+					</Link>
 				</div>
 			</div>
 		</div>

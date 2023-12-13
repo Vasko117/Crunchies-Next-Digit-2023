@@ -18,7 +18,7 @@ export default function Home() {
 						className="px-10 py-[15px] bg-red-600 rounded-xl gap-2.5 drop-shadow-lg"
 					>
 						<div className="text-center text-white text-xl font-bold font-['Rowdies'] leading-loose tracking-tight">
-							See Our Menu
+							Order now
 						</div>
 					</Link>
 				</div>

@@ -72,3 +72,4 @@ build/
 
 ## properties
 backend/Crunchies/src/main/resources/application-prod.properties
+backend/Crunchies/src/main/resources/application-prod.properties

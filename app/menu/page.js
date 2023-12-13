@@ -1,24 +1,23 @@
 "use client";
 import { useState, useEffect } from "react";
+import { getItems } from "../util/menuItemUtils";
+import { loginUser } from "../util/userUtils";
 
 export default function Menu() {
 	const [foodItems, setFood] = useState([]);
 	const [error, setError] = useState();
+	const [user, setUser] = useState();
 
 	useEffect(() => {
-		fetch("http://localhost:8080/api")
-			.then((response) => response.json())
-			.then((data) => {
-				console.log(data);
-				setFood(data);
-			})
-			.catch((err) => setError(err));
+		getItems(setFood, setError);
+		loginUser(setUser);
 	}, []);
 
 	return (
 		<div>
+			{user && user.username}
 			{foodItems.map((food) => (
-				<h1>{food.title}</h1>
+				<h1 key={food.id}>{food.name}</h1>
 			))}
 		</div>
 	);

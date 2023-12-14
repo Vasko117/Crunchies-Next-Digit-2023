@@ -12,10 +12,17 @@ import { getItems } from '../util/menuItemUtils';
 export default function Menu() {
 	const [foodItems, setFood] = useState([]);
 	const [error, setError] = useState();
+	const [itemname, setItemname] = useState('');
 
 	useEffect(() => {
 		getItems(setFood);
 	}, []);
+	const handleKey = (e) => {
+		if (e.code === 'Enter') {
+			handleSearch();
+		}
+	};
+	const handleSelect = async () => {};
 
 	return (
 		<div className="w-screen h-screen bg-gradient-to-t from-[#FFD600] to-[#ff5100]  inset-0 z-[-10] absolute flex justify-normal pl-[3vw] overflow-auto hide-scrollbar">
@@ -41,17 +48,51 @@ export default function Menu() {
 					<div className="text-center text-white text-[30px] font-bold font-['Rowdies'] leading-[5rem] drop-shadow-md m-[1vw] ml-[2vw]">
 						Choose your special bite!
 					</div>
-					<input
-						type="search"
-						placeholder="search..."
-						className=" bg-red-600 w-1/3 h-[3vh] mt-[4.5vh] rounded-3xl opacity-90 mr-[4vh] text-black p-2 "
-					></input>
+					<div className="flex-col mr-3">
+						<input
+							type="search"
+							placeholder="search..."
+							className=" bg-red-600 w-full h-[3vh] mt-[4.5vh] rounded-sm opacity-90 mr-[4vh] text-black p-2 "
+							onKeyDown={handleKey}
+							onChange={(e) => setUsername(e.target.value)}
+							value={itemname}
+						></input>
+						<div className="h-max border-x-2 border-y-2 border-black w-max rounded-sm">
+							<div
+								className="flex items-center p-5 cursor-pointer border-2 border-black w-max h-[10px]"
+								onClick={() => handleSelect(user)}
+							>
+								<Image src={fries} className="w-[2vw]" alt="User" />
+								<div className="font-bold text-base">
+									<span>Extra large burger</span>
+								</div>
+							</div>
+							<div
+								className="flex items-center p-5 cursor-pointer border-2 border-black w-max h-[10px] rounded-sm"
+								onClick={() => handleSelect(user)}
+							>
+								<Image src={fries} className="w-[2vw]" alt="User" />
+								<div className="font-bold text-base">
+									<span>Extra large burger</span>
+								</div>
+							</div>
+							<div
+								className="flex items-center p-5 cursor-pointer border-2 border-black w-max h-[10px] rounded-sm"
+								onClick={() => handleSelect(user)}
+							>
+								<Image src={fries} className="w-[2vw]" alt="User" />
+								<div className="font-bold text-base">
+									<span>Extra large burger</span>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div className=" grid grid-flow-row-dense grid-cols-3 grid-rows-3 font-['Rowdies'] text-white ">
 					{foodItems.map((food) => (
 						<div
 							key={food.id}
-							className="bg-white rounded-md  h-max bg-opacity-20 m-[3vh] flex flex-col justify-center items-center p-[1vh] text-center"
+							className="bg-white rounded-md  h-max bg-opacity-20 m-[3vh] flex flex-col justify-center items-center p-[3vh] text-center rounded-2xl"
 						>
 							<Image
 								height={100}
@@ -61,6 +102,11 @@ export default function Menu() {
 							></Image>
 							<p>{food.name}</p>
 							<p>{food.price}</p>
+							<button className="px-10 py-[15px] bg-red-600  rounded-2xl w-max scale-75 ">
+								<div className="text-center text-white text-lg font-bold font-['Rowdies'] leading-loose tracking-tight">
+									Order now!
+								</div>
+							</button>
 						</div>
 					))}
 				</div>

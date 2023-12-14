@@ -44,7 +44,7 @@ export default function Login() {
 
 	return (
 		<div className=" flex justify-center items-center w-[100vw] h-[100vh] bg-gradient-to-t from-[#FFD600] to-[#ff5100] ">
-			<div className="pl-5 text-white text-[100px] font-PaconcificoHeading drop-shadow-md ">
+			<div className="pl-5 text-white text-[100px] font-PacificoHeading drop-shadow-md ">
 				Crunchies
 			</div>
 			<div className="w-max h-max   flex-col justify-center items-center  inline-flex p-6 pt-11 font-Rowdies text-white text-2xl">

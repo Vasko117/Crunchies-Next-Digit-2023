@@ -32,36 +32,70 @@ export default function Menu() {
 			)
 		);
 	}
+	function handlemenu() {
+		setItems(foodItems.filter((item) => item.name.includes('Menu')));
+	}
+
+	function handleburgers() {
+		setItems(foodItems.filter((item) => item.name.includes('Burger')));
+	}
+
+	function handlefries() {
+		setItems(foodItems.filter((item) => item.name.includes('Fries')));
+	}
+
+	function handledrinks() {
+		setItems(foodItems.filter((item) => item.name.includes('Cola')));
+	}
+
+	function handlewraps() {
+		setItems(foodItems.filter((item) => item.name.includes('Wrap')));
+	}
 
 	return (
 		<div className="w-screen h-screen bg-gradient-to-t from-[#FFD600] to-[#ff5100]  inset-0 z-[-10] absolute flex justify-normal pl-[3vw] overflow-auto hide-scrollbar">
 			<div className="flex justify-center sm:flex-row md:flex-col lg:flex-col mt-[12vh] bg-slate-100 w-[220px] rounded-3xl opacity-25 mr-[5vw] h-max">
-				<button className=" bg-white rounded-3xl h-[110px] w-[180px] ml-[2vh] m-[1vh] mt-[3vh] flex justify-center ">
+				<button
+					className=" bg-white rounded-3xl h-[110px] w-[180px] ml-[2vh] m-[1vh] mt-[3vh] flex justify-center "
+					onClick={handlemenu}
+				>
 					<Image className="h-[10vh] w-[100px] mt-[1vh]" src={combo}></Image>
 				</button>
-				<button className=" bg-white rounded-3xl h-[110px] w-[180px] ml-[2vh] m-[1vh] mt-[3vh] flex justify-center">
+				<button
+					className=" bg-white rounded-3xl h-[110px] w-[180px] ml-[2vh] m-[1vh] mt-[3vh] flex justify-center "
+					onClick={handleburgers}
+				>
 					<Image className="h-[10vh] w-[100px]  mt-[1vh]" src={burger}></Image>
 				</button>
-				<button className=" bg-white rounded-3xl h-[110px] w-[180px] ml-[2vh] m-[1vh] mt-[3vh] flex justify-center">
+				<button
+					className=" bg-white rounded-3xl h-[110px] w-[180px] ml-[2vh] m-[1vh] mt-[3vh] flex justify-center"
+					onClick={handlefries}
+				>
 					<Image className="h-[10vh] w-[100px]  mt-[1vh]" src={fries}></Image>
 				</button>
-				<button className=" bg-white rounded-3xl h-[110px] w-[180px] ml-[2vh] m-[1vh] mt-[3vh] flex justify-center">
+				<button
+					className=" bg-white rounded-3xl h-[110px] w-[180px] ml-[2vh] m-[1vh] mt-[3vh] flex justify-center"
+					onClick={handlewraps}
+				>
 					<Image className="h-[10vh] w-[100px]  mt-[1vh]" src={wrap}></Image>
 				</button>
-				<button className=" bg-white rounded-3xl h-[110px] w-[180px] ml-[2vh] m-[1vh] mt-[3vh] flex justify-center">
+				<button
+					className=" bg-white rounded-3xl h-[110px] w-[180px] ml-[2vh] m-[1vh] mt-[3vh] flex justify-center"
+					onClick={handledrinks}
+				>
 					<Image className="h-[10vh] w-[100px]  mt-[1vh]" src={soda}></Image>
 				</button>
 			</div>
-			<div className="mt-[12vh] bg-slate-100 w-3/5 h-full rounded-3xl bg-opacity-25 overflow-auto hide-scrollbar">
+			<div className="mt-[12vh] bg-slate-100 w-3/5 h-full rounded-3xl bg-opacity-25 overflow-auto hide-scrollbar ">
 				<div className="flex justify-between w-full items-center">
-					<div className="text-center text-white text-[30px] font-bold font-['Rowdies'] leading-[5rem] drop-shadow-md mt-[1vw] ml-[2vw]">
+					<div className="text-center text-white text-[30px] font-bold font-['Rowdies'] leading-[5rem] drop-shadow-md ml-[2vw] whitespace-nowrap">
 						Choose your special bite!
 					</div>
-					<div className="flex items-center justify-start">
+					<div className="flex items-center justify-start w-full">
 						<input
 							type="search"
 							placeholder="search..."
-							className=" bg-red-600 h-[3vh] rounded-lg opacity-90 mr-[4vh] text-black p-2 w-full "
+							className=" bg-red-600 h-[3vh]  rounded-lg opacity-90 mr-[4vh] text-black p-2 w-full "
 							onChange={Searching}
 						></input>
 					</div>
@@ -70,7 +104,7 @@ export default function Menu() {
 					{items.map((food) => (
 						<div
 							key={food.id}
-							className=" w-[16vw] h-max flex flex-col justify-center ite w-full ms-center p-[3vh] text-center rounded-2xl drop-shadow-xl"
+							className=" w-[16vw] h-max flex flex-col justify-center ite  ms-center p-[3vh] text-center rounded-2xl drop-shadow-xl"
 						>
 							<Image
 								height={100}

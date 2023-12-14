@@ -1,8 +1,12 @@
 'use client';
 import { use, useState, useContext } from 'react';
 import { GlobalContext } from '../context/page';
+('use client');
+import { use, useState, useContext, useEffect } from 'react';
+import { GlobalContext } from '../context/page';
+import { LoginUser } from '../util/userUtils';
 
-export default function Cart() {
+export default function cart() {
 	const [adress, setAdress] = useState('');
 	const [city, setCity] = useState('');
 	const [postalcode, setPostalcode] = useState('');
@@ -24,7 +28,7 @@ export default function Cart() {
 	};
 
 	return (
-		<div className="w-screen h-screen bg-gradient-to-t from-[#FFD600] to-[#ff5100]  inset-0 z-[-10] absolute overflow-hidden p-4">
+		<div className="w-screen h-screen bg-gradient-to-t from-[#FFD600] to-[#ff5100]  inset-0 z-[-10] absolute overflow-hidden">
 			<div className="flex justify-center flex-col lg:flex-row lg:items-start sm:items-center md:items-center mt-[12vh]">
 				<form onSubmit={handlePaymentSubmit}>
 					<div className="flex-col">

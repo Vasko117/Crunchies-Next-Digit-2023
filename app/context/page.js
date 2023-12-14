@@ -1,16 +1,16 @@
-'use client'
-import Spline from '@splinetool/react-spline';
-import Image from 'next/image';
-import { createContext, useState } from 'react';
-import Navbar from '../components/navbar';
-import Link from 'next/link';
+'use client';
+import React, { createContext, useContext, useState } from 'react';
 
-export default function AuthContext() {
-	const [currentUser, setcurrentUser] = useState({});
-	function AuthContextProvider({ children }) {}
+export const GlobalContext = createContext({
+	user: { email: '', password: '', username: '' },
+});
+
+export const GlobalContextProvider = ({ children }) => {
+	const [user, setUser] = useState({ email: '', password: '', username: '' });
+
 	return (
-		<AuthContext.Provider value={{ currentUser }}>
+		<GlobalContext.Provider value={{ user, setUser }}>
 			{children}
-		</AuthContext.Provider>
+		</GlobalContext.Provider>
 	);
-}
+};

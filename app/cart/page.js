@@ -1,12 +1,9 @@
 'use client';
-import { use, useState, useContext } from 'react';
-import { GlobalContext } from '../context/page';
-('use client');
-import { use, useState, useContext, useEffect } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from '../context/page';
 import { LoginUser } from '../util/userUtils';
 
-export default function cart() {
+export default function Cart() {
 	const [adress, setAdress] = useState('');
 	const [city, setCity] = useState('');
 	const [postalcode, setPostalcode] = useState('');
@@ -26,6 +23,14 @@ export default function cart() {
 			headers: { 'Content-type': 'application/json; charset=UTF-8' },
 		});
 	};
+
+	useEffect(() => {
+		LoginUser('dimi', 'dimi', setUser, setError);
+	}, []);
+
+	useEffect(() => {
+		setItems(user.menuItemList);
+	}, [user]);
 
 	return (
 		<div className="w-screen h-screen bg-gradient-to-t from-[#FFD600] to-[#ff5100]  inset-0 z-[-10] absolute overflow-hidden">
@@ -129,7 +134,7 @@ export default function cart() {
 
 						<div className="text-slate-50 font-bold text-3xl text-left h-[16vh] font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
 							{items.map((item) => (
-								<div>{item.name}</div>
+								<div key={item.id}>{item.name}</div>
 							))}
 						</div>
 						<div className="text-slate-50 font-bold text-3xl text-left h-[16vh] font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">

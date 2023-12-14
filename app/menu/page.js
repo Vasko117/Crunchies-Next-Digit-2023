@@ -1,31 +1,34 @@
-"use client";
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import fries from "../../public/french-fries.png";
-import burger from "../../public/burger(1).png";
-import combo from "../../public/burger.png";
-import soda from "../../public/soda.png";
-import wrap from "../../public/burrito.png";
-import Spline from "@splinetool/react-spline";
-import { getItems } from "../util/menuItemUtils";
+'use client';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import fries from '../../public/french-fries.png';
+import burger from '../../public/burger(1).png';
+import combo from '../../public/burger.png';
+import soda from '../../public/soda.png';
+import wrap from '../../public/burrito.png';
+import Spline from '@splinetool/react-spline';
+import { getItems } from '../util/menuItemUtils';
 
 export default function Menu() {
 	const [items, setItems] = useState([]);
 	const [foodItems, setFood] = useState([]);
 	const [error, setError] = useState();
-	const [item, setItem] = useState("");
+	const [item, setItem] = useState('');
 
 	useEffect(() => {
 		getItems(setFood);
-		getItems(setItems);
+		setItems(foodItems);
 	}, []);
-	const handleKey = (e) => {
-		if (e.code === "Enter") {
-			handleSearch();
-		}
-	};
+
+	useEffect(() => {
+		setItems(foodItems);
+	}, [foodItems]);
 	function Searching(e) {
-		setItems(foodItems.filter((item) => item.name.toUpperCase().includes(e.target.value.toUpperCase())));
+		setItems(
+			foodItems.filter((item) =>
+				item.name.toUpperCase().includes(e.target.value.toUpperCase())
+			)
+		);
 	}
 
 	function handleCategoryClick(foodType) {
@@ -36,19 +39,39 @@ export default function Menu() {
 		<div className="w-screen h-screen bg-gradient-to-t from-[#FFD600] to-[#ff5100]  inset-0 z-[-10] absolute flex justify-normal pl-[3vw] overflow-auto hide-scrollbar">
 			<div className="flex justify-center sm:flex-row md:flex-col lg:flex-col mt-[12vh] bg-slate-100 w-[220px] rounded-3xl bg-opacity-25 mr-[5vw] h-max">
 				<button className=" bg-white rounded-3xl h-[110px] w-[180px] ml-[2vh] m-[1vh] mt-[3vh] bg-opacity-10 hover:bg-red-600 hover:opacity-80 flex justify-center ">
-					<Image alt="comboIcon" className="h-[10vh] w-[100px] mt-[1vh]" src={combo}></Image>
+					<Image
+						alt="comboIcon"
+						className="h-[10vh] w-[100px] mt-[1vh]"
+						src={combo}
+					></Image>
 				</button>
 				<button className=" bg-white rounded-3xl h-[110px] w-[180px] ml-[2vh] m-[1vh] mt-[3vh] bg-opacity-10 hover:bg-red-600 hover:opacity-80 flex justify-center">
-					<Image alt="burgerIcon" className="h-[10vh] w-[100px]  mt-[1vh]" src={burger}></Image>
+					<Image
+						alt="burgerIcon"
+						className="h-[10vh] w-[100px]  mt-[1vh]"
+						src={burger}
+					></Image>
 				</button>
 				<button className=" bg-white rounded-3xl h-[110px] w-[180px] ml-[2vh] m-[1vh] mt-[3vh] bg-opacity-10 hover:bg-red-600 hover:opacity-80 flex justify-center">
-					<Image alt="friesIcon" className="h-[10vh] w-[100px]  mt-[1vh]" src={fries}></Image>
+					<Image
+						alt="friesIcon"
+						className="h-[10vh] w-[100px]  mt-[1vh]"
+						src={fries}
+					></Image>
 				</button>
 				<button className=" bg-white rounded-3xl h-[110px] w-[180px] ml-[2vh] m-[1vh] mt-[3vh] bg-opacity-10 hover:bg-red-600 hover:opacity-80 flex justify-center">
-					<Image alt="wrapIcon" className="h-[10vh] w-[100px]  mt-[1vh]" src={wrap}></Image>
+					<Image
+						alt="wrapIcon"
+						className="h-[10vh] w-[100px]  mt-[1vh]"
+						src={wrap}
+					></Image>
 				</button>
 				<button className=" bg-white rounded-3xl h-[110px] w-[180px] ml-[2vh] m-[1vh] mt-[3vh] bg-opacity-10 hover:bg-red-600 hover:opacity-80 flex justify-center">
-					<Image alt="sodaIcon" className="h-[10vh] w-[100px]  mt-[1vh]" src={soda}></Image>
+					<Image
+						alt="sodaIcon"
+						className="h-[10vh] w-[100px]  mt-[1vh]"
+						src={soda}
+					></Image>
 				</button>
 			</div>
 			<div className="flex flex-row items-center w-full">
@@ -92,7 +115,9 @@ export default function Menu() {
 										</div>
 										<button className=" bg-green-600 w-1/3 p-2 ">+</button>
 									</div>
-									<button className="bg-red-500  w-full rounded-b-2xl p-2 ">Add to cart</button>
+									<button className="bg-red-500  w-full rounded-b-2xl p-2 ">
+										Add to cart
+									</button>
 								</div>
 							</div>
 						))}

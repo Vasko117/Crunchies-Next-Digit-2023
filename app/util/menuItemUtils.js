@@ -8,12 +8,13 @@ export const getItems = (setItems, setError) => {
 		.catch((err) => setError(err));
 };
 
-export const addItem = (userId, menuId, setUser) => {
+export const addItem = (userId, menuId, amount, setUser) => {
 	fetch("http://localhost:8008/addItem", {
 		method: "POST",
 		body: JSON.stringify({
 			userId: userId,
 			menuItemId: menuId,
+			amount: amount,
 		}),
 		headers: {
 			"Content-type": "application/json; charset=UTF-8",

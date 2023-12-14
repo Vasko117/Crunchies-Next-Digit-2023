@@ -34,6 +34,6 @@ public class DataHolder {
         MenuItem.builder().name("Crunchy Burger").imageURL("https://cdn.midjourney.com/7dc88a0a-c192-4eb3-95ab-93b1eeb24b4d/0_0.webp").build()));
 
     userRepository.saveAll(Arrays.asList(
-        User.builder().username("dimi").password("dimi").build()));
+        User.builder().username("dimi").password("dimi").menuItemList(menuItemRepository.findAll()).build()));
   }
 }

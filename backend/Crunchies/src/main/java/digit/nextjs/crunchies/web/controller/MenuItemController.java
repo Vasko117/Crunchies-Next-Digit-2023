@@ -32,7 +32,9 @@ public class MenuItemController {
     User addItem(@RequestBody UserItemDto userItemDto) {
         User user = userRepository.findById(Long.parseLong(userItemDto.getUserId())).orElse(null);
         MenuItem menuItem = menuItemRepository.findById(Long.parseLong(userItemDto.getMenuItemId())).orElse(null);
-        if(user != null) user.getMenuItemList().add(menuItem);
+        if(user != null) {
+            for(int i = 0; i < userItemDto.getAmount(); ++i) user.getMenuItemList().add(menuItem);
+        }
         return user;
     }
 

@@ -20,7 +20,8 @@ public class MenuItem {
     private int price;
     private double rating;
     @Lob
-    @Column
+    @Column(columnDefinition = "TEXT")
+    @Basic(fetch = FetchType.EAGER)
     private String imageURL;
     private MenuItemType menuItemType;
 }

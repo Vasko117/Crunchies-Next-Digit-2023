@@ -4,6 +4,7 @@ import digit.nextjs.crunchies.model.MenuItem;
 import digit.nextjs.crunchies.model.User;
 import digit.nextjs.crunchies.repository.MenuItemRepository;
 import digit.nextjs.crunchies.repository.UserRepository;
+import digit.nextjs.crunchies.service.MenuItemService;
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,7 @@ import java.util.Arrays;
 @AllArgsConstructor
 public class DataHolder {
   MenuItemRepository menuItemRepository;
+  MenuItemService menuItemService;
   UserRepository userRepository;
 
   @PostConstruct
@@ -34,6 +36,6 @@ public class DataHolder {
         MenuItem.builder().name("Crunchy Burger").imageURL("https://cdn.midjourney.com/7dc88a0a-c192-4eb3-95ab-93b1eeb24b4d/0_0.webp").build()));
 
     userRepository.saveAll(Arrays.asList(
-        User.builder().username("dimi").password("dimi").menuItemList(menuItemRepository.findAll()).build()));
+        User.builder().username("dimi").password("dimi").menuItemList(Arrays.asList(menuItemService.getItemByID((long)1).orElse(null))).build()));
   }
 }

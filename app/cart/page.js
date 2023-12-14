@@ -1,5 +1,6 @@
 "use client";
-import { use, useState } from "react";
+import { use, useState, useContext } from "react";
+import { GlobalContext } from "../context/page";
 
 export default function cart() {
   const [adress, setAdress] = useState("");
@@ -8,7 +9,9 @@ export default function cart() {
   const [cardholderName, setCardholderName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
 
-  const [userInfo, setUserInfo] = useState("");
+  const { user } = useContext(GlobalContext);
+  const [items, setItems] = useState(user.itemList);
+  console.log(user);
 
   const handlePaymentSubmit = (e) => {
     e.preventDefault();
@@ -117,11 +120,15 @@ export default function cart() {
         <div className="">
           <div className="w-[45vw]   bg-opacity-50 bg-yellow-50 rounded-[25px]">
             <div className="  text-slate-50 font-bold text-3xl text-left  font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
-              Payment Methods
+              Your Delights
             </div>
 
-            <div className="text-slate-50 font-bold text-3xl text-left h-40 font-Rubik ml-10 pt-3 border-b-2 border-white mr-14"></div>
-            <div className="text-slate-50 font-bold text-3xl text-left h-40 font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
+            <div className="text-slate-50 font-bold text-3xl text-left h-[16vh] font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
+              {items.map((item) => (
+                <div>{item.name}</div>
+              ))}
+            </div>
+            <div className="text-slate-50 font-bold text-3xl text-left h-[16vh] font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
               <div>
                 <div className="flex justify-between">
                   <h4>Subtotal:</h4>

@@ -7,6 +7,7 @@ import digit.nextjs.crunchies.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,7 +36,8 @@ public class userController {
     }
 
     @PostMapping("user/login")
-    ResponseEntity<?> loginUser(@RequestBody UserDto userDto){
+    @Transactional(readOnly = true)
+    public ResponseEntity<?> loginUser(@RequestBody UserDto userDto){
         System.out.println(userDto);
         System.out.println(userDto.getUsername());
         System.out.println(userDto.getPassword());

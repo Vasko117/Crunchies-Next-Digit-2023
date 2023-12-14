@@ -1,37 +1,31 @@
-"use client";
-import { use, useState, useContext, useEffect } from "react";
-import { GlobalContext } from "../context/page";
-import { LoginUser } from "../util/userUtils";
+'use client';
+import { use, useState, useContext } from 'react';
+import { GlobalContext } from '../context/page';
+('use client');
+import { use, useState, useContext, useEffect } from 'react';
+import { GlobalContext } from '../context/page';
+import { LoginUser } from '../util/userUtils';
 
 export default function cart() {
-	const [adress, setAdress] = useState("");
-	const [city, setCity] = useState("");
-	const [postalcode, setPostalcode] = useState("");
-	const [cardholderName, setCardholderName] = useState("");
-	const [cardNumber, setCardNumber] = useState("");
-	const [error, setError] = useState("");
+	const [adress, setAdress] = useState('');
+	const [city, setCity] = useState('');
+	const [postalcode, setPostalcode] = useState('');
+	const [cardholderName, setCardholderName] = useState('');
+	const [cardNumber, setCardNumber] = useState('');
 
-	const { user, setUser } = useContext(GlobalContext);
-	const [items, setItems] = useState(user.menuItemList);
+	const { user } = useContext(GlobalContext);
+	const [items, setItems] = useState(user.itemList);
 	console.log(user);
 
 	const handlePaymentSubmit = (e) => {
 		e.preventDefault();
 		const data = [cardholderName, cardNumber, postalcode, city, adress];
-		const response = fetch("http://localhost:8008/user/cart", {
-			method: "POST",
+		const response = fetch('http://localhost:8008/user/cart', {
+			method: 'POST',
 			body: JSON.stringify(data),
-			headers: { "Content-type": "application/json; charset=UTF-8" },
+			headers: { 'Content-type': 'application/json; charset=UTF-8' },
 		});
 	};
-
-	useEffect(() => {
-		LoginUser("dimi", "dimi", setUser, setError);
-	}, []);
-
-	useEffect(() => {
-		setItems(user.menuItemList);
-	}, [user]);
 
 	return (
 		<div className="w-screen h-screen bg-gradient-to-t from-[#FFD600] to-[#ff5100]  inset-0 z-[-10] absolute overflow-hidden">
@@ -133,8 +127,10 @@ export default function cart() {
 							Your Delights
 						</div>
 
-						<div className="ASS text-slate-50 font-bold text-3xl text-left h-[16vh] font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
-							{items && items.map((item) => <div>{item.name}</div>)}
+						<div className="text-slate-50 font-bold text-3xl text-left h-[16vh] font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
+							{items.map((item) => (
+								<div>{item.name}</div>
+							))}
 						</div>
 						<div className="text-slate-50 font-bold text-3xl text-left h-[16vh] font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
 							<div>

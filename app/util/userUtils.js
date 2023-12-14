@@ -1,20 +1,20 @@
-import { GlobalContext } from '../context/page';
-import { useContext } from 'react';
+import { GlobalContext } from "../context/page";
+import { useContext } from "react";
 
-export function LoginUser(username, password, setError, context) {
+export function LoginUser(username, password, setUser, setError) {
 	try {
-		fetch('http://localhost:8008/user/login', {
-			method: 'POST',
+		fetch("http://localhost:8008/user/login", {
+			method: "POST",
 			body: JSON.stringify({
 				username: username,
 				password: password,
 			}),
 			headers: {
-				'Content-type': 'application/json; charset=UTF-8',
+				"Content-type": "application/json; charset=UTF-8",
 			},
 		})
 			.then((response) => {
-				if (!response.ok) throw new Error('Invalid username or password');
+				if (!response.ok) throw new Error("Invalid username or password");
 				return response.json();
 			})
 			.then((data) => {
@@ -29,15 +29,15 @@ export function LoginUser(username, password, setError, context) {
 	}
 }
 
-export const RegisterUser = (username, password, setUser) => {
-	fetch('http://localhost:8008/user/register', {
-		method: 'POST',
+export const RegisterUser = (username, password, setUser, setError) => {
+	fetch("http://localhost:8008/user/register", {
+		method: "POST",
 		body: JSON.stringify({
 			username: username,
 			password: password,
 		}),
 		headers: {
-			'Content-type': 'application/json; charset=UTF-8',
+			"Content-type": "application/json; charset=UTF-8",
 		},
 	})
 		.then((response) => response.json())
@@ -45,6 +45,6 @@ export const RegisterUser = (username, password, setUser) => {
 			setUser(data);
 		})
 		.catch((err) => {
-			console.log(err);
+			setError(err);
 		});
 };

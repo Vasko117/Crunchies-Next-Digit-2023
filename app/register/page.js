@@ -1,42 +1,22 @@
-'use client';
-import Spline from '@splinetool/react-spline';
-import Image from 'next/image';
-import { useContext, useState } from 'react';
-import { GlobalContext } from '../context/page';
-import Navbar from '../components/navbar';
-import Link from 'next/link';
+"use client";
+import Spline from "@splinetool/react-spline";
+import Image from "next/image";
+import { useContext, useState } from "react";
+import { GlobalContext } from "../context/page";
+import Navbar from "../components/navbar";
+import { RegisterUser } from "../util/userUtils";
+import Link from "next/link";
 
 export default function Register() {
-	const [username, setUsername] = useState('');
-	const [password, setPassword] = useState('');
-	const [email, setEmail] = useState('');
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+	const [email, setEmail] = useState("");
 	const [error, setError] = useState();
 	const { user, setUser } = useContext(GlobalContext);
-	const RegisterUserInComponent = async (username, password) => {
-		fetch('http://localhost:8008/user/register', {
-			method: 'POST',
-			body: JSON.stringify({
-				username: username,
-				password: password,
-			}),
-			headers: {
-				'Content-type': 'application/json; charset=UTF-8',
-			},
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				setUser(data);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	};
 	return (
 		<div className="flex justify-center items-center w-[100vw] h-[100vh] bg-gradient-to-t from-[#FFD600] to-[#ff5100]">
 			<div className=" flex justify-center items-center w-max h-max mt-12 ">
-				<div className="pl-5 text-white text-[100px] font-PacificoHeading drop-shadow-md ">
-					Crunchies
-				</div>
+				<div className="pl-5 text-white text-[100px] font-PacificoHeading drop-shadow-md ">Crunchies</div>
 				<div className="flex flex-col  justify-center items-center w-max h-max  rounded-[50px] p-6 pt-11 font-Rowdies text-white text-2xl object-cover">
 					<label htmlFor="Name"> Username</label>
 					<input
@@ -65,7 +45,7 @@ export default function Register() {
 					<button
 						className="px-10 py-[15px] bg-red-600  gap-2.5 rounded-3xl w-max scale-75 mr-4"
 						style={{ zIndex: 1 }}
-						onClick={() => RegisterUserInComponent(username, password)}
+						onClick={() => RegisterUser(username, password, setUser, setError)}
 					>
 						<div className="text-center text-white text-xl font-bold font-['Rowdies'] leading-loose tracking-tight">
 							Sign up
@@ -83,6 +63,7 @@ export default function Register() {
 						</button>
 					</div>
 					<p>{user && user.username}</p>
+					<p className="text-red-600">{error && error.message}</p>
 				</div>
 			</div>
 		</div>

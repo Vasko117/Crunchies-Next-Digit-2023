@@ -9,6 +9,7 @@ import digit.nextjs.crunchies.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,7 +30,8 @@ public class MenuItemController {
 
     @CrossOrigin(maxAge = 3600, origins = "http://localhost:3000")
     @PutMapping("/addItem")
-    User addItem(@RequestBody UserItemDto userItemDto) {
+    @Transactional(readOnly = true)
+    public User addItem(@RequestBody UserItemDto userItemDto) {
         System.out.println(userItemDto.getMenuItemId());
         System.out.println(userItemDto.getUserId());
         User user = userRepository.findById(Long.parseLong(userItemDto.getUserId())).orElse(null);

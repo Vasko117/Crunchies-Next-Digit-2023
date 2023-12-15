@@ -34,12 +34,12 @@ public class DataHolder {
             MenuItem.builder().name("Small Coke-Cola").price(60).menuItemType(MenuItemType.DRINK).imageURL("https://cdn.midjourney.com/047e47a0-a82c-443f-8bda-da0146a566a1/0_1.webp").build(),
             MenuItem.builder().name("Medium Coke-Cola").price(80).menuItemType(MenuItemType.DRINK).imageURL("https://cdn.midjourney.com/047e47a0-a82c-443f-8bda-da0146a566a1/0_3.webp").build(),
             MenuItem.builder().name("Large Coke-Cola").price(100).menuItemType(MenuItemType.DRINK).imageURL("https://cdn.midjourney.com/047e47a0-a82c-443f-8bda-da0146a566a1/0_2.webp").build(),
-        MenuItem.builder().name("Wrap").price(190).menuItemType(MenuItemType.SNACK).imageURL("https://cdn.midjourney.com/7dc88a0a-c192-4eb3-95ab-93b1eeb24b4d/0_0.webp").build(),
+            MenuItem.builder().name("Wrap").price(190).menuItemType(MenuItemType.SNACK).imageURL("https://cdn.midjourney.com/7dc88a0a-c192-4eb3-95ab-93b1eeb24b4d/0_0.webp").build(),
             MenuItem.builder().name("Crispy Wrap").price(200).menuItemType(MenuItemType.SNACK).imageURL("https://cdn.midjourney.com/30640a42-ec96-4957-a613-ae8d011146fe/0_0.webp").build(),
             MenuItem.builder().name("Double Wrap").price(240).menuItemType(MenuItemType.SNACK).imageURL("https://cdn.midjourney.com/30640a42-ec96-4957-a613-ae8d011146fe/0_3.webp").build(),
             MenuItem.builder().name("Small Fries").price(60).menuItemType(MenuItemType.FRIES).imageURL("https://cdn.midjourney.com/1d6efe58-baa2-45fc-b47f-0c0c9f833fc6/0_2.webp").build(),
             MenuItem.builder().name("Medium Fries").price(80).menuItemType(MenuItemType.FRIES).imageURL("https://cdn.midjourney.com/1d6efe58-baa2-45fc-b47f-0c0c9f833fc6/0_1.webp").build(),
-        MenuItem.builder().name("Large Fries").price(100).menuItemType(MenuItemType.FRIES).imageURL("https://cdn.midjourney.com/1d6efe58-baa2-45fc-b47f-0c0c9f833fc6/0_3.webp").build()));
+            MenuItem.builder().name("Large Fries").price(100).menuItemType(MenuItemType.FRIES).imageURL("https://cdn.midjourney.com/1d6efe58-baa2-45fc-b47f-0c0c9f833fc6/0_3.webp").build()));
 
     userRepository.saveAll(Collections.singletonList(
             User.builder().username("dimi").password("dimi").menuItemList(Collections.singletonList(menuItemService.getItemByID((long) 1).orElse(null))).build()));

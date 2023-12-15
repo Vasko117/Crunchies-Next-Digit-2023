@@ -8,5 +8,5 @@ import lombok.Setter;
 public class UserItemDto {
     private String userId;
     private String menuItemId;
-    private int amount;
+    private String amount;
 }

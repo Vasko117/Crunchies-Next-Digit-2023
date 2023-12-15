@@ -9,8 +9,10 @@ export const getItems = (setItems, setError) => {
 };
 
 export const addItem = (userId, menuId, amount, setUser) => {
+	console.log(userId);
+	console.log(menuId);
 	fetch("http://localhost:8008/addItem", {
-		method: "POST",
+		method: "PUT",
 		body: JSON.stringify({
 			userId: userId,
 			menuItemId: menuId,

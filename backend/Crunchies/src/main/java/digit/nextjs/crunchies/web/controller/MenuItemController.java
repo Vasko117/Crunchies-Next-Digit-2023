@@ -27,13 +27,15 @@ public class MenuItemController {
         return menuItemRepository.findAll();
     }
 
-    @CrossOrigin(maxAge = 3600)
+    @CrossOrigin(maxAge = 3600, origins = "http://localhost:3000")
     @PutMapping("/addItem")
     User addItem(@RequestBody UserItemDto userItemDto) {
+        System.out.println(userItemDto.getMenuItemId());
+        System.out.println(userItemDto.getUserId());
         User user = userRepository.findById(Long.parseLong(userItemDto.getUserId())).orElse(null);
         MenuItem menuItem = menuItemRepository.findById(Long.parseLong(userItemDto.getMenuItemId())).orElse(null);
         if(user != null) {
-            for(int i = 0; i < userItemDto.getAmount(); ++i) user.getMenuItemList().add(menuItem);
+            for(int i = 0; i < Integer.parseInt(userItemDto.getAmount()); ++i) user.getMenuItemList().add(menuItem);
         }
         return user;
     }

@@ -1,31 +1,32 @@
-'use client';
-import { useEffect, useState, useContext } from 'react';
-import { GlobalContext } from '../context/page';
-import { LoginUser } from '../util/userUtils';
+"use client";
+import { useEffect, useState, useContext } from "react";
+import { GlobalContext } from "../context/page";
+import { LoginUser } from "../util/userUtils";
 
 export default function Cart() {
-	const [adress, setAdress] = useState('');
-	const [city, setCity] = useState('');
-	const [postalcode, setPostalcode] = useState('');
-	const [cardholderName, setCardholderName] = useState('');
-	const [cardNumber, setCardNumber] = useState('');
+	const [adress, setAdress] = useState("");
+	const [city, setCity] = useState("");
+	const [postalcode, setPostalcode] = useState("");
+	const [cardholderName, setCardholderName] = useState("");
+	const [cardNumber, setCardNumber] = useState("");
+	const [error, setError] = useState();
 
-	const { user } = useContext(GlobalContext);
+	const { user, setUser } = useContext(GlobalContext);
 	const [items, setItems] = useState(user.itemList);
 	console.log(user);
 
 	const handlePaymentSubmit = (e) => {
 		e.preventDefault();
 		const data = [cardholderName, cardNumber, postalcode, city, adress];
-		const response = fetch('http://localhost:8008/user/cart', {
-			method: 'POST',
+		const response = fetch("http://localhost:8008/user/cart", {
+			method: "POST",
 			body: JSON.stringify(data),
-			headers: { 'Content-type': 'application/json; charset=UTF-8' },
+			headers: { "Content-type": "application/json; charset=UTF-8" },
 		});
 	};
 
 	useEffect(() => {
-		LoginUser('dimi', 'dimi', setUser, setError);
+		LoginUser("dimi", "dimi", setUser, setError);
 	}, []);
 
 	useEffect(() => {
@@ -133,9 +134,7 @@ export default function Cart() {
 						</div>
 
 						<div className="text-slate-50 font-bold text-3xl text-left h-[16vh] font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
-							{items.map((item) => (
-								<div key={item.id}>{item.name}</div>
-							))}
+							{items && items.map((item) => <div key={item.id}>{item.name}</div>)}
 						</div>
 						<div className="text-slate-50 font-bold text-3xl text-left h-[16vh] font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
 							<div>

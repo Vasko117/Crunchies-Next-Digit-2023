@@ -7,7 +7,7 @@ export default function Navbar() {
 		return (
 			<Link
 				href={"/" + props.text.toLowerCase()}
-				className="text-white text-[35px] font-bold font-['Rowdies'] mx-4 drop-shadow-md"
+				className="text-white text-[20px] md:text-[35px] font-bold font-['Rowdies'] mx-4 drop-shadow-md"
 			>
 				{props.text}
 			</Link>
@@ -16,14 +16,14 @@ export default function Navbar() {
 
 	return (
 		<div className="absolute top-0 left-0 bg-transparent overflow-hidden z-50 bg-gradient-to-t from-transparent to-[#ff5100]">
-			<div className="flex justify-between items-center w-[100vw]">
+			<div className="flex flex-col md:flex-row md:flex-wrap justify-between items-center w-[100vw]">
 				<div>
-					<Link href="/" className="pl-5 text-white text-[60px] font-PacificoHeading drop-shadow-md">
+					<Link href="/" className="p-0 md:pl-5 text-white text-[60px] font-PacificoHeading drop-shadow-md">
 						Crunchies
 					</Link>
 				</div>
 
-				<div className="flex justify-center items-center pr-10">
+				<div className="flex flex-wrap justify-center items-center p-0 md:pr-10">
 					<NavbarButton text={"Menu"}></NavbarButton>
 					<NavbarButton text={"Location"}></NavbarButton>
 					<NavbarButton text={"Cart"}></NavbarButton>

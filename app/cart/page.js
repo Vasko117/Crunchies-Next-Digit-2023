@@ -28,12 +28,12 @@ export default function Cart() {
     });
   };
 
-  useEffect(() => {
-    LoginUser("dimi", "dimi", setUser, setError);
-  }, []);
+  useEffect(() => {}, []);
 
   useEffect(() => {
     setItems(user.menuItemList);
+    console.log(items);
+    console.log(user.menuItemList);
   }, [user]);
 
   return (

@@ -137,30 +137,80 @@ export default function Cart() {
             </div>
 
             <div className="text-slate-50 font-bold text-3xl text-left h-[16vh] font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
-              {items.map((item) => (
-                <div key={item.id}>{item.name}</div>
-              ))}
+              {items &&
+                items.map((item) => {
+                  if (help.includes(item.name)) {
+                    return null;
+                  } else {
+                    help.push(item.name);
+                    return (
+                      <div
+                        className="flex-row flex justify-between"
+                        key={item.id}
+                      >
+                        <div className="w-full h-full mb-4 text-red-600">
+                          <div className="flex justify-normal items-center">
+                            {item.name} {item.price} {"ден x "}
+                            <p>
+                              {
+                                user.menuItemList.filter(
+                                  (menuItem) => menuItem.name === item.name
+                                ).length
+                              }
+                            </p>
+                          </div>
+                        </div>
+                        <Image
+                          height={100}
+                          width={100}
+                          src={item.imageURL}
+                          alt="food"
+                          className="h-max w-1/12 rounded-tr-2xl rounded-2xl ml-[1vh]"
+                          priority="true"
+                        />
+                      </div>
+                    );
+                  }
+                })}
             </div>
             <div className="text-slate-50 font-bold text-3xl text-left h-[16vh] font-Rubik ml-10 pt-3 border-b-2 border-white mr-14">
               <div>
                 <div className="flex justify-between">
                   <h4>Subtotal:</h4>
-                  <p className="text-right">0.00$</p>
+                  <p className="text-right text-white" placeholder="0ден">
+                    {" "}
+                    {parseInt(
+                      user.menuItemList.reduce(
+                        (accumulator, item) => accumulator + item.price,
+                        0
+                      )
+                    )}
+                    {"ден"}
+                  </p>
                 </div>
                 <div className="flex justify-between">
                   <h4>Discount:</h4>
-                  <p>0.00$</p>
+                  <p>0ден</p>
                 </div>
                 <div className="flex justify-between">
                   <h4>Shipping:</h4>
-                  <p>0.00$</p>
+                  <p>40ден</p>
                 </div>
               </div>
             </div>
             <div className="text-slate-50 font-bold text-3xl text-left h-40 font-Rubik  pt-3 mr-14">
               <div className="flex justify-between ml-10">
                 <h4>Total:</h4>
-                <p>0.00$</p>
+                <p>
+                  {" "}
+                  {parseInt(
+                    user.menuItemList.reduce(
+                      (accumulator, item) => accumulator + item.price,
+                      0
+                    ) + 40
+                  )}
+                  {"ден"}
+                </p>
               </div>
               <div className="flex justify-center">
                 <button className="  text-clip w-max text-slate-50 text-xl text-center font-Rubik bg-red-600 rounded-[25px]  p-2  mt-8 ">
